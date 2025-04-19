@@ -1,0 +1,20 @@
+# This is project 1
+
+## Section 1: Data
+
+i cleaned some data
+
+## section 2: analysis
+
+i did some analysis
+
+'''{r}
+# | message: false
+
+library(tidyverse)
+mtcars |>
+  ggplots(aes(x = wt, y = mpg)) + 
+  geom_point()
+'''
+
+

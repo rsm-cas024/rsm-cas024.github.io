@@ -1,0 +1,12 @@
+---
+title: "Resume"
+---
+
+{{< pdf resume/resume.pdf width=100% height=800 >}}
+---
+
+About this site
+
+```{r, echo=FALSE}
+1 + 1
+```
