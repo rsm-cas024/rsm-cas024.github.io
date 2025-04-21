@@ -1,30 +1,37 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Carolyn Su",
-    "section": "",
-    "text": "Hi there!\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n[1] 2"
-  },
-  {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Resume",
-    "section": "",
-    "text": "About this site\n\n\n[1] 2"
-  },
-  {
-    "objectID": "resume.html#section",
-    "href": "resume.html#section",
-    "title": "Resume",
-    "section": "",
-    "text": "About this site\n\n\n[1] 2"
-  },
-  {
     "objectID": "blog.html",
     "href": "blog.html",
     "title": "My Projects",
     "section": "",
-    "text": "index\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis is project 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "this is project 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnalyzing Unstructured Data\n\n\n\n\n\n\n\n\n\nApr 1, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Carolyn Su",
+    "section": "",
+    "text": "Hi there!\nMy name is Carolyn and I am an MSBA student at UC San Diego."
+  },
+  {
+    "objectID": "blog/project 1/index.html",
+    "href": "blog/project 1/index.html",
+    "title": "Analyzing Unstructured Data",
+    "section": "",
+    "text": "Gathered Formula 1 data from Year 2000 to Year 2024 and cleaned the data"
+  },
+  {
+    "objectID": "blog/project 1/index.html#section-1-data",
+    "href": "blog/project 1/index.html#section-1-data",
+    "title": "Analyzing Unstructured Data",
+    "section": "",
+    "text": "Gathered Formula 1 data from Year 2000 to Year 2024 and cleaned the data"
+  },
+  {
+    "objectID": "blog/project 1/index.html#section-2-train-xgboost-model",
+    "href": "blog/project 1/index.html#section-2-train-xgboost-model",
+    "title": "Analyzing Unstructured Data",
+    "section": "Section 2: Train XGBoost Model",
+    "text": "Section 2: Train XGBoost Model\nUsed historical data to train an XGBoost Model\n#| message: false\nlibrary(tidyverse) mtcars |&gt; ggplot(aes(x = wt, y = mpg)) + geom_point()"
   }
 ]

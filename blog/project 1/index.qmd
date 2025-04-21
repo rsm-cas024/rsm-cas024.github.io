@@ -1,20 +1,20 @@
-# This is project 1
+---
+title: "Analyzing Unstructured Data"
+date: 2025-04
+---
 
 ## Section 1: Data
 
-i cleaned some data
+Gathered Formula 1 data from Year 2000 to Year 2024 and cleaned the data
 
-## section 2: analysis
+## Section 2: Train XGBoost Model
 
-i did some analysis
+Used historical data to train an XGBoost Model
 
-'''{r}
-# | message: false
+```{r}
+#| message: false
 
 library(tidyverse)
 mtcars |>
-  ggplots(aes(x = wt, y = mpg)) + 
+  ggplot(aes(x = wt, y = mpg)) + 
   geom_point()
-'''
-
-

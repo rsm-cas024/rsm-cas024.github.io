@@ -1,19 +1,16 @@
 ---
 title: "Carolyn Su"
-image: images/Carolyn Su work profile.png
+image: images/Carolyn_Su_work_profile.png
 about: 
   template: jolla
   links: 
     - icon: envelope
-      href: cas024@ucsd.edu
+      href: mailto:cas024@ucsd.edu
     - icon: linkedin
       href: www.linkedin.com/in/carolynsu
 ---
 
 Hi there!
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+My name is Carolyn and I am an MSBA student at UC San Diego.
 
-```{r, echo=FALSE}
-1 + 1
-```
