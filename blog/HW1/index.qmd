@@ -11,10 +11,8 @@ Gathered Formula 1 data from Year 2000 to Year 2024 and cleaned the data
 
 Used historical data to train an XGBoost Model
 
-```{r}
-#| message: false
+```{python}
+import numpy as np
+print('123')
+```
 
-library(tidyverse)
-mtcars |>
-  ggplot(aes(x = wt, y = mpg)) + 
-  geom_point()

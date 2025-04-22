@@ -33,5 +33,33 @@
     "title": "Analyzing Unstructured Data",
     "section": "Section 2: Train XGBoost Model",
     "text": "Section 2: Train XGBoost Model\nUsed historical data to train an XGBoost Model\n#| message: false\nlibrary(tidyverse) mtcars |&gt; ggplot(aes(x = wt, y = mpg)) + geom_point()"
+  },
+  {
+    "objectID": "blog/HW1/index.html",
+    "href": "blog/HW1/index.html",
+    "title": "Analyzing Unstructured Data",
+    "section": "",
+    "text": "Gathered Formula 1 data from Year 2000 to Year 2024 and cleaned the data"
+  },
+  {
+    "objectID": "blog/HW1/index.html#section-1-data",
+    "href": "blog/HW1/index.html#section-1-data",
+    "title": "Analyzing Unstructured Data",
+    "section": "",
+    "text": "Gathered Formula 1 data from Year 2000 to Year 2024 and cleaned the data"
+  },
+  {
+    "objectID": "blog/HW1/index.html#section-2-train-xgboost-model",
+    "href": "blog/HW1/index.html#section-2-train-xgboost-model",
+    "title": "Analyzing Unstructured Data",
+    "section": "Section 2: Train XGBoost Model",
+    "text": "Section 2: Train XGBoost Model\nUsed historical data to train an XGBoost Model\n\nimport numpy as np\nprint('123')\n\n123"
+  },
+  {
+    "objectID": "readme.html",
+    "href": "readme.html",
+    "title": "this is my website",
+    "section": "",
+    "text": "this is my website"
   }
 ]
