@@ -15,4 +15,3 @@ Used historical data to train an XGBoost Model
 import numpy as np
 print('123')
 ```
-

@@ -45,7 +45,7 @@ This experiment not only contributed empirical evidence to the economics of char
 ### Variable Definitions
 
 | Variable | Description |
-|-------------------|-----------------------------------------------------|
+|----|----|
 | `treatment` | Treatment |
 | `control` | Control |
 | `ratio` | Match ratio |
@@ -432,7 +432,7 @@ The second regression (among donors) does not have a clear causal interpretation
 
 The following plots show the distribution of donation amounts among people who gave, separated by group. A red dashed line marks the average in each group.
 
-![](Control Group.png){width="682"}
+![](Control%20Group.png){width="682"}
 
 These plots show that:
 
