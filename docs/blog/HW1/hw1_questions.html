@@ -533,7 +533,7 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
 </ul>
 <p><strong>Interpretation:</strong></p>
 <p>There is no significant difference in mrm2 between treatment and control. This confirms random assignment worked well for this variable.</p>
-<div id="9f16bd97" class="cell" data-execution_count="1">
+<div id="9834c867" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -574,7 +574,7 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
   p-value: 0.905</code></pre>
 </div>
 </div>
-<div id="d2bb3198" class="cell" data-execution_count="2">
+<div id="a18954ac" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now perform the equivalent linear regression</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> smf.ols(<span class="st">"mrm2 ~ treatment"</span>, data<span class="op">=</span>df_clean).fit()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Linear regression result"</span>)</span>
@@ -603,7 +603,7 @@ treatment      0.0137      0.115      0.119      0.905      -0.211       0.238
 </ul>
 <p><strong>Interpretation:</strong></p>
 <p>No statistically significant difference here either. This supports the claim that treatment was randomized effectively.</p>
-<div id="45cabae3" class="cell" data-execution_count="3">
+<div id="789ddd90" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_clean2 <span class="op">=</span> df[[<span class="st">"treatment"</span>, <span class="st">"years"</span>]].dropna()</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>group_t2 <span class="op">=</span> df_clean2[df_clean2[<span class="st">"treatment"</span>] <span class="op">==</span> <span class="dv">1</span>][<span class="st">"years"</span>]</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>group_c2 <span class="op">=</span> df_clean2[df_clean2[<span class="st">"treatment"</span>] <span class="op">==</span> <span class="dv">0</span>][<span class="st">"years"</span>]</span>
@@ -618,7 +618,7 @@ treatment      0.0137      0.115      0.119      0.905      -0.211       0.238
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>df_denom <span class="op">=</span> ((s1<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> n1 <span class="op">+</span> s2<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> n2)<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> (((s1<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> n1)<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> (n1<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> ((s2<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> n2)<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> (n2<span class="op">-</span><span class="dv">1</span>))</span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>p_value <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> stats.t.cdf(np.<span class="bu">abs</span>(t_stat), df_denom))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="16426d89" class="cell" data-execution_count="4">
+<div id="cd3eb1c8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> smf.ols(<span class="st">"years ~ treatment"</span>, data<span class="op">=</span>df_clean2).fit()</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model.summary().tables[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -649,7 +649,7 @@ treatment     -0.0575      0.052     -1.103      0.270      -0.160       0.045
 <li><p>However, this difference is not statistically significant at the 95% level (though it’s close — borderline at 10%).</p></li>
 <li><p>This is still generally acceptable for a randomized design, but it’s good to note.</p></li>
 </ul>
-<div id="7a99c22e" class="cell" data-execution_count="5">
+<div id="94fdb6ec" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_clean3 <span class="op">=</span> df[[<span class="st">"treatment"</span>, <span class="st">"female"</span>]].dropna()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>group_t3 <span class="op">=</span> df_clean3[df_clean3[<span class="st">"treatment"</span>] <span class="op">==</span> <span class="dv">1</span>][<span class="st">"female"</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>group_c3 <span class="op">=</span> df_clean3[df_clean3[<span class="st">"treatment"</span>] <span class="op">==</span> <span class="dv">0</span>][<span class="st">"female"</span>]</span>
@@ -663,7 +663,7 @@ treatment     -0.0575      0.052     -1.103      0.270      -0.160       0.045
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>df_denom <span class="op">=</span> ((s1<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> n1 <span class="op">+</span> s2<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> n2)<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> (((s1<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> n1)<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> (n1<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> ((s2<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> n2)<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> (n2<span class="op">-</span><span class="dv">1</span>))</span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>p_value <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> stats.t.cdf(np.<span class="bu">abs</span>(t_stat), df_denom))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="04423026" class="cell" data-execution_count="6">
+<div id="526a8060" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> smf.ols(<span class="st">"female ~ treatment"</span>, data<span class="op">=</span>df_clean3).fit()</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -690,13 +690,13 @@ treatment     -0.0575      0.052     -1.103      0.270      -0.160       0.045
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Tue, 27 May 2025</td>
+<td>Wed, 28 May 2025</td>
 <td data-quarto-table-cell-role="th">Prob (F-statistic):</td>
 <td>0.0787</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>16:19:58</td>
+<td>19:18:51</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-30148.</td>
 </tr>
@@ -829,7 +829,7 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
 <li><p>p-value: 0.0019</p></li>
 </ul>
 <p>This means that being in the treatment group increased the donation rate by 0.4 percentage points — a nearly 22% increase over the baseline control group donation rate of ~1.8%.</p>
-<div id="81f1d749" class="cell" data-execution_count="7">
+<div id="aff3a73b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>lm_g <span class="op">=</span> smf.ols(<span class="st">"gave ~ treatment"</span>, data<span class="op">=</span>df).fit()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>lm_g.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -856,13 +856,13 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Tue, 27 May 2025</td>
+<td>Wed, 28 May 2025</td>
 <td data-quarto-table-cell-role="th">Prob (F-statistic):</td>
 <td>0.00193</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>16:19:58</td>
+<td>19:18:51</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>26630.</td>
 </tr>
@@ -963,7 +963,7 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
 <section id="probit-regression" class="level3">
 <h3 class="anchored" data-anchor-id="probit-regression"><strong>Probit Regression</strong></h3>
 <p>To replicate Table 3, Column 1 in Karlan &amp; List (2007), we run a probit model:</p>
-<div id="30a40fa4" class="cell" data-execution_count="8">
+<div id="1dae6ba1" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>probit_model <span class="op">=</span> smf.probit(<span class="st">"gave ~ treatment"</span>, data<span class="op">=</span>df).fit()</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>probit_model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -995,13 +995,13 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Tue, 27 May 2025</td>
+<td>Wed, 28 May 2025</td>
 <td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
 <td>0.0009783</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>16:19:58</td>
+<td>19:18:51</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-5030.5</td>
 </tr>
@@ -1092,7 +1092,7 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
 <li><p>ratio2 (2:1 vs 1:1): +0.00188 (0.19 pp increase)</p></li>
 <li><p>ratio3 (3:1 vs 1:1): +0.00198 (0.20 pp increase)</p></li>
 </ul>
-<div id="5a39077b" class="cell" data-execution_count="9">
+<div id="7d2901a0" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_ratio <span class="op">=</span> df[(df[<span class="st">"treatment"</span>] <span class="op">==</span> <span class="dv">1</span>) <span class="op">&amp;</span> (df[<span class="st">"ratio"</span>].isin([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]))][[<span class="st">"gave"</span>, <span class="st">"ratio"</span>]].dropna()</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df_ratio[<span class="st">"ratio2"</span>] <span class="op">=</span> (df_ratio[<span class="st">"ratio"</span>] <span class="op">==</span> <span class="dv">2</span>).astype(<span class="bu">int</span>)</span>
@@ -1124,13 +1124,13 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Tue, 27 May 2025</td>
+<td>Wed, 28 May 2025</td>
 <td data-quarto-table-cell-role="th">Prob (F-statistic):</td>
 <td>0.524</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>16:19:58</td>
+<td>19:18:51</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>16688.</td>
 </tr>
@@ -1281,7 +1281,7 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
 <h3 class="anchored" data-anchor-id="size-of-charitable-contribution">Size of Charitable Contribution</h3>
 <p>In this subsection, I analyze the effect of the size of matched donation on the size of the charitable contribution.</p>
 <p>We first run a regression on the full sample, including both donors and non-donors:</p>
-<div id="64fe0e64" class="cell" data-execution_count="10">
+<div id="7405e974" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_amt_full <span class="op">=</span> df[[<span class="st">"treatment"</span>, <span class="st">"amount"</span>]].dropna()</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>lm_amt_full <span class="op">=</span> smf.ols(<span class="st">"amount ~ treatment"</span>, data<span class="op">=</span>df_amt_full).fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1292,7 +1292,7 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
 </ul>
 <p>This result suggests that people in the treatment group gave 15 cents more on average than those in the control group. It is marginally statistically significant at the 10% level, but not at 5%. So, while the match offer might increase total revenue slightly, the effect is modest.</p>
 <p>We now repeat the analysis using only donors (those with <code>amount &gt; 0</code>):</p>
-<div id="79371965" class="cell" data-execution_count="11">
+<div id="7b438986" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_amt_positive <span class="op">=</span> df[df[<span class="st">"amount"</span>] <span class="op">&gt;</span> <span class="dv">0</span>]</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>lm_amt_donors <span class="op">=</span> smf.ols(<span class="st">"amount ~ treatment"</span>, data<span class="op">=</span>df_amt_positive).fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1344,7 +1344,7 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
 <li><p>From these, we compute a vector of 10,000 differences in donation outcomes between treatment and randomly sampled control units.</p></li>
 </ul>
 <p>We then plot the cumulative average of those 10,000 differences.</p>
-<div id="e6b0badc" class="cell" data-execution_count="12">
+<div id="1d0d98f3" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1404,7 +1404,7 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
 <p>We draw samples of size 50, 200, 500, and 1000, and repeat each sampling process 1,000 times. For each repetition, we calculate the average difference in donation rate between treatment and control samples.</p>
 <section id="simulating-the-sampling-distribution" class="level4">
 <h4 class="anchored" data-anchor-id="simulating-the-sampling-distribution">Simulating the Sampling Distribution</h4>
-<div id="5d376c9b" class="cell" data-execution_count="13">
+<div id="72650a70" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>p_control <span class="op">=</span> <span class="fl">0.018</span></span>
@@ -1424,7 +1424,7 @@ t = \frac{\bar{X}_{\text{treat}} - \bar{X}_{\text{control}}}{\sqrt{\frac{s_t^2}{
 </section>
 <section id="plotting-the-results" class="level4">
 <h4 class="anchored" data-anchor-id="plotting-the-results">Plotting the Results</h4>
-<div id="e62f4b9a" class="cell" data-execution_count="14">
+<div id="354e0601" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
