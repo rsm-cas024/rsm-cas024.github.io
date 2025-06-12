@@ -431,15 +431,15 @@ Note
 <li><p><span class="math inline">\(\beta_{\text{netflix}}, \beta_{\text{prime}}, \beta_{\text{ads}} \sim \mathcal{N}(0, 5^2)\)</span></p></li>
 <li><p><span class="math inline">\(\beta_{\text{price}} \sim \mathcal{N}(0, 1^2)\)</span></p></li>
 </ul>
-<p>The sampler runs for <strong>11,000 steps</strong>, discards the first <strong>1,000 samples as burn-in</strong>, and retains the final <strong>10,000 samples</strong> to summarize the posterior.</p>
-<p>We use a symmetric <strong>independent proposal distribution</strong> with the following standard deviations:</p>
+<p>The sampler runs for 11,000 steps, discards the first 1,000 samples as burn-in, and retains the final 10,000 samples to summarize the posterior.</p>
+<p>We use a symmetric independent proposal distribution with the following standard deviations:</p>
 <ul>
-<li>[0.05, 0.05, 0.05, 0.005] for Netflix, Prime, Ads, and Price respectively.</li>
+<li>[0.05, 0.05, 0.05, 0.005] for Netflix, Prime, Ads, and Price respectively</li>
 </ul>
 <p>The sampler runs for 11,000 steps, discards the first 1,000 samples as burn-in, and retains the final 10,000 samples to summarize the posterior.</p>
-<p>We use a symmetric <strong>independent proposal distribution</strong> with the following standard deviations:</p>
+<p>We use a symmetric independent proposal distribution with the following standard deviations:</p>
 <ul>
-<li>[0.05, 0.05, 0.05, 0.005] for Netflix, Prime, Ads, and Price respectively.</li>
+<li>[0.05, 0.05, 0.05, 0.005] for Netflix, Prime, Ads, and Price respectively</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> log_likelihood(beta):</span>
