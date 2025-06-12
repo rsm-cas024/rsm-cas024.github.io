@@ -9,7 +9,7 @@
 <meta name="author" content="Carolyn Su">
 <meta name="dcterms.date" content="2025-06-11">
 
-<title>Add Title – Carolyn Su</title>
+<title>Custom Implementations of K-Means and KNN Algorithms – Carolyn Su</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Add Title</h1>
+<h1 class="title">Custom Implementations of K-Means and KNN Algorithms</h1>
 </div>
 
 
@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="implementation-code" class="level3">
 <h3 class="anchored" data-anchor-id="implementation-code"><strong>Implementation Code</strong></h3>
-<div id="12b9eb12" class="cell" data-execution_count="2">
+<div id="08f6eb2b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"palmer_penguins.csv"</span>).dropna()</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> df[[<span class="st">"bill_length_mm"</span>, <span class="st">"flipper_length_mm"</span>]].to_numpy()</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -265,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="results-from-custom-k-means" class="level3">
 <h3 class="anchored" data-anchor-id="results-from-custom-k-means"><strong>Results from Custom K-Means</strong></h3>
-<div id="879292e5" class="cell" data-execution_count="3">
+<div id="c68a6b22" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>labels_custom, centroids_custom <span class="op">=</span> custom_kmeans(data, k<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -342,7 +342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="comparison-to-built-in-kmeans" class="level3">
 <h3 class="anchored" data-anchor-id="comparison-to-built-in-kmeans"><strong>Comparison to Built-In KMeans</strong></h3>
-<div id="61e89e72" class="cell" data-execution_count="4">
+<div id="421e555e" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, n_init<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>labels_builtin <span class="op">=</span> model.fit_predict(data)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>centroids_builtin <span class="op">=</span> model.cluster_centers_</span>
@@ -370,7 +370,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Silhouette Score: Measures how well each point fits within its cluster versus the nearest other cluster. Ranges from -1 to 1. Higher values are better.</p></li>
 </ul>
 <p>The analysis was run for K = 2 through 7:</p>
-<div id="4d154d5f" class="cell" data-execution_count="5">
+<div id="a3a15b38" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> df[[<span class="st">"bill_length_mm"</span>, <span class="st">"flipper_length_mm"</span>]].to_numpy()</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>wcss <span class="op">=</span> []</span>
@@ -419,7 +419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="supervised-ml-k-nearest-neighbors-synthetic-data-generation-and-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="supervised-ml-k-nearest-neighbors-synthetic-data-generation-and-visualization"><strong>Supervised ML: K-Nearest Neighbors — Synthetic Data Generation and Visualization</strong></h2>
 <p>To illustrate how the K-Nearest Neighbors algorithm handles non-linear boundaries, we create a synthetic dataset with two features, x1 and x2. The outcome variable y is binary and depends on whether x2 lies above a non-linear “wiggly” boundary defined by the function sin(4 * x1) + x1.</p>
-<div id="9747b587" class="cell" data-execution_count="6">
+<div id="7a4ad83d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -460,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="test-set-generation" class="level3">
 <h3 class="anchored" data-anchor-id="test-set-generation"><strong>Test Set Generation</strong></h3>
 <p>We generate a new test dataset using the same logic as before, but with a different random seed. This ensures the test set is independent of the training data.</p>
-<div id="1c283029" class="cell" data-execution_count="7">
+<div id="c4308c43" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">99</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x1_test <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">100</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x2_test <span class="op">=</span> np.random.uniform(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">100</span>)</span>
@@ -473,7 +473,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="custom-knn-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="custom-knn-implementation"><strong>Custom KNN Implementation</strong></h3>
 <p>Below is a hand-coded implementation of the K-Nearest Neighbors classifier. For each test point, we compute its distance to all training points, find the k nearest ones, and predict the most common label.</p>
-<div id="cbc6302f" class="cell" data-execution_count="8">
+<div id="a7f88061" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> custom_knn(X_train, y_train, X_test, k):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    predictions <span class="op">=</span> []</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> X_test:</span>
@@ -489,7 +489,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="model-evaluation-and-accuracy-plot" class="level3">
 <h3 class="anchored" data-anchor-id="model-evaluation-and-accuracy-plot"><strong>Model Evaluation and Accuracy Plot</strong></h3>
 <p>We run our custom KNN for k = 1 through k = 30 and record the accuracy on the test dataset. The plot below shows accuracy (as a percentage) vs.&nbsp;the number of neighbors.</p>
-<div id="1dd567ff" class="cell" data-execution_count="9">
+<div id="47c50cca" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -526,7 +526,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="optimal-k" class="level3">
 <h3 class="anchored" data-anchor-id="optimal-k"><strong>Optimal k</strong></h3>
-<p>The highest classification accuracy is <strong>92%</strong>, achieved when <strong>k = 1</strong>. This reflects the fact that KNN with small k values can closely trace local structure—although it can overfit. In this particular synthetic problem with a clean boundary and well-separated classes, k = 1 performs best.</p>
+<p>The highest classification accuracy is 92%, achieved when k = 1. This reflects the fact that KNN with small k values can closely trace local structure—although it can overfit. In this particular synthetic problem with a clean boundary and well-separated classes, k = 1 performs best.</p>
 </section>
 </section>
 <section id="conclusion-1" class="level2">
