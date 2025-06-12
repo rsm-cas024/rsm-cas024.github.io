@@ -1,5 +1,5 @@
 ---
-title: "Add Title"
+title: "Custom Implementations of K-Means and KNN Algorithms"
 author: "Carolyn Su"
 date: 2025-06-11
 ---
